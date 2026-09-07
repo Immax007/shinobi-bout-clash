@@ -1,113 +1,92 @@
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
 }
 
 
 html,body{
 
-    width:100%;
-    height:100%;
+width:100%;
+height:100%;
 
-    overflow:hidden;
+overflow:hidden;
 
-    background:#000;
-
-}
-
-
-
-/* =========================
-GAME CANVAS
-========================= */
-
-
-.game{
-
-    position:relative;
-
-    width:100vw;
-
-    height:100vh;
-
-    aspect-ratio:16/9;
-
-    overflow:hidden;
-
-    background:#050914;
+background:#000;
 
 }
 
 
 
+/* MAIN GAME BOARD */
+
+.game-screen{
+
+position:absolute;
+
+width:1280px;
+
+height:720px;
+
+left:50%;
+
+top:50%;
+
+transform:
+translate(-50%,-50%)
+scale(var(--scale));
 
 
+overflow:hidden;
 
-/* =========================
-BACKGROUND
-========================= */
-
-
-.background{
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-    linear-gradient(
-    rgba(0,5,20,.2),
-    rgba(0,0,0,.55)
-    ),
-
-    url("assets/battlefield.jpg");
-
-    background-size:cover;
-
-    background-position:center;
+background:#050b18;
 
 }
 
 
 
-.moon{
+/* SCALE SYSTEM */
 
-    position:absolute;
+:root{
 
-    width:180px;
-
-    top:30px;
-
-    right:280px;
+--scale:1;
 
 }
 
 
 
-.village{
+@media(max-width:700px){
 
-    position:absolute;
+.game-screen{
 
-    bottom:0;
+--scale:.52;
 
-    width:100%;
+}
 
 }
 
 
 
-.fog{
+@media(max-width:500px){
 
-    position:absolute;
+.game-screen{
 
-    bottom:0;
+--scale:.40;
 
-    width:100%;
+}
 
-    opacity:.25;
+}
+
+
+
+@media(max-width:380px){
+
+.game-screen{
+
+--scale:.33;
+
+}
 
 }
 
@@ -115,134 +94,141 @@ BACKGROUND
 
 
 
+/* BACKGROUND */
 
-/* =========================
-HEADER
-========================= */
+.battle-bg{
 
+position:absolute;
 
-.header{
+inset:0;
 
-    position:absolute;
+background:
 
-    top:15px;
+linear-gradient(
+rgba(0,0,30,.2),
+rgba(0,0,0,.55)
+),
 
-    left:30px;
+url("assets/battlefield.jpg");
 
-    right:30px;
+background-size:cover;
 
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    z-index:10;
-
-}
-
-
-
-.header img{
-
-    width:180px;
-
-}
-
-
-
-.header button{
-
-    width:60px;
-
-    height:60px;
-
-    border-radius:15px;
-
-    background:#06162c;
-
-    color:white;
-
-    border:2px solid #008cff;
-
-    font-size:32px;
+background-position:center;
 
 }
 
 
 
 
+/* HEADER */
 
+.top-header{
 
+position:absolute;
 
-/* =========================
-PLAYER PANELS
-========================= */
+top:20px;
 
+left:35px;
 
-.enemy-panel,
-.player-panel{
+right:35px;
 
+display:flex;
 
-    position:absolute;
+justify-content:space-between;
 
-    left:40px;
-
-    right:40px;
-
-    height:110px;
-
-
-    display:flex;
-
-    align-items:center;
-
-
-    background:
-    rgba(5,15,35,.85);
-
-
-    z-index:5;
-
+z-index:10;
 
 }
 
 
 
-.enemy-panel{
+.logo{
 
-    top:100px;
-
-    border:2px solid #ff1838;
+width:200px;
 
 }
 
 
 
-.player-panel{
+.restart{
 
-    bottom:190px;
+width:60px;
 
-    border:2px solid #008cff;
+height:60px;
+
+border-radius:18px;
+
+background:#06172d;
+
+border:3px solid #008cff;
+
+color:white;
+
+font-size:35px;
 
 }
 
 
+
+
+
+/* TOP PLAYER PANEL */
+
+
+.enemy-hud,
+.player-hud{
+
+
+position:absolute;
+
+left:35px;
+
+right:35px;
+
+
+height:95px;
+
+
+display:flex;
+
+align-items:center;
+
+
+background:
+rgba(5,15,35,.85);
+
+
+}
+
+
+.enemy-hud{
+
+top:95px;
+
+border:3px solid #ff1935;
+
+}
+
+
+
+.player-hud{
+
+bottom:150px;
+
+border:3px solid #009cff;
+
+}
 
 
 
 
 .portrait{
 
-    width:90px;
+width:80px;
 
-    height:90px;
+height:80px;
 
-    margin-left:15px;
-
-    border-radius:15px;
-
-    overflow:hidden;
+margin-left:10px;
 
 }
 
@@ -250,44 +236,43 @@ PLAYER PANELS
 
 .portrait img{
 
-    width:100%;
+width:100%;
 
-    height:100%;
+height:100%;
 
-    object-fit:cover;
-
-}
-
-
-
-
-
-
-.info{
-
-    flex:1;
-
-    padding-left:20px;
+object-fit:cover;
 
 }
 
 
 
-.info h1{
 
-    font-size:26px;
 
-    letter-spacing:4px;
+.name-box{
+
+padding-left:20px;
+
+flex:1;
 
 }
 
 
 
-.info p{
+.name-box h2{
 
-    color:#aaa;
+font-size:28px;
 
-    margin:5px 0;
+letter-spacing:5px;
+
+}
+
+
+
+.name-box p{
+
+font-size:18px;
+
+color:#aaa;
 
 }
 
@@ -297,73 +282,47 @@ PLAYER PANELS
 
 .chakra{
 
-    display:flex;
+display:flex;
 
-    align-items:center;
+align-items:center;
 
-    gap:12px;
-
-}
-
-
-
-.bar{
-
-    width:240px;
-
-    height:15px;
-
-    background:#111b32;
-
-    border-radius:20px;
-
-    overflow:hidden;
+gap:15px;
 
 }
 
 
 
-.bar div{
+.chakra-track{
 
-    height:100%;
+width:200px;
 
-    width:60%;
+height:15px;
 
-    background:#ff9800;
-
-}
-
-
-
-.blue div{
-
-    background:#00d9ff;
-
-    width:70%;
+background:#111a33;
 
 }
 
 
 
+.enemy-energy{
 
+height:100%;
 
+width:60%;
 
-
-.enemy-cards{
-
-    display:flex;
-
-    margin-right:50px;
+background:#ff9d00;
 
 }
 
 
 
-.enemy-cards img{
+.player-energy{
 
-    width:60px;
+height:100%;
 
-    margin-left:-20px;
+width:70%;
+
+background:#00d9ff;
 
 }
 
@@ -372,37 +331,30 @@ PLAYER PANELS
 
 
 
-
-
-/* =========================
-TURN
-========================= */
+/* TURN BAR */
 
 
 .turn{
 
-    position:absolute;
+position:absolute;
 
-    left:38%;
+left:400px;
 
-    right:38%;
+width:480px;
 
-    height:45px;
+height:50px;
 
-    display:flex;
+display:flex;
 
-    align-items:center;
+justify-content:center;
 
-    justify-content:center;
+align-items:center;
 
+font-size:22px;
 
-    border-radius:25px;
+font-weight:bold;
 
-    font-weight:bold;
-
-    letter-spacing:3px;
-
-    z-index:10;
+letter-spacing:4px;
 
 }
 
@@ -410,11 +362,11 @@ TURN
 
 .enemy-turn{
 
-    top:225px;
+top:210px;
 
-    background:#65000b;
+background:#5b0008;
 
-    border:2px solid red;
+border:3px solid red;
 
 }
 
@@ -422,55 +374,38 @@ TURN
 
 .player-turn{
 
-    bottom:310px;
+bottom:280px;
 
-    background:#003c70;
+background:#00365c;
 
-    border:2px solid cyan;
-
-}
-
-
-
-
-
-
-/* =========================
-CENTER FIELD
-========================= */
-
-
-.field{
-
-    position:absolute;
-
-
-    top:300px;
-
-    left:0;
-
-    right:0;
-
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-
-    gap:90px;
-
+border:3px solid cyan;
 
 }
 
 
 
-.pile{
 
-    text-align:center;
 
-    color:white;
+/* CENTER AREA */
+
+
+.battle-table{
+
+position:absolute;
+
+top:285px;
+
+left:0;
+
+right:0;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:90px;
 
 }
 
@@ -478,41 +413,17 @@ CENTER FIELD
 
 .pile img{
 
-    width:140px;
+width:130px;
 
 }
 
 
 
-.pile label{
+.active-card{
 
-    display:block;
+width:150px;
 
-}
-
-
-
-
-
-.active{
-
-    width:170px;
-
-    height:240px;
-
-    position:relative;
-
-}
-
-
-
-.active img:first-child{
-
-    position:absolute;
-
-    width:100%;
-
-    height:100%;
+height:210px;
 
 }
 
@@ -520,43 +431,7 @@ CENTER FIELD
 
 .element{
 
-    position:absolute;
-
-    width:90px;
-
-    top:50px;
-
-    left:40px;
-
-}
-
-
-
-.active strong{
-
-    position:absolute;
-
-    bottom:40px;
-
-    width:100%;
-
-    text-align:center;
-
-    font-size:50px;
-
-}
-
-
-
-.active span{
-
-    position:absolute;
-
-    bottom:15px;
-
-    width:100%;
-
-    text-align:center;
+width:90px;
 
 }
 
@@ -564,27 +439,22 @@ CENTER FIELD
 
 
 
-
-/* =========================
-HAND
-========================= */
+/* PLAYER HAND */
 
 
-.hand{
+.player-hand{
 
-    position:absolute;
+position:absolute;
 
-    bottom:70px;
+bottom:65px;
 
+left:0;
 
-    left:0;
+right:0;
 
-    right:0;
+display:flex;
 
-
-    display:flex;
-
-    justify-content:center;
+justify-content:center;
 
 }
 
@@ -592,25 +462,11 @@ HAND
 
 .card{
 
-    width:130px;
+width:115px;
 
-    height:180px;
+height:170px;
 
-    position:relative;
-
-    margin-left:-20px;
-
-
-    transition:.3s;
-
-}
-
-
-
-.card:hover{
-
-    transform:
-    translateY(-25px);
+margin-left:-18px;
 
 }
 
@@ -618,11 +474,11 @@ HAND
 
 .card img:first-child{
 
-    position:absolute;
+width:100%;
 
-    width:100%;
+height:100%;
 
-    height:100%;
+position:absolute;
 
 }
 
@@ -630,82 +486,62 @@ HAND
 
 .card img:nth-child(2){
 
-    position:absolute;
+width:70px;
 
-    width:80px;
+position:absolute;
 
-    left:25px;
+left:22px;
 
-    top:40px;
-
-}
-
-
-
-
-
-
-
-/* =========================
-BUTTONS
-========================= */
-
-
-.buttons{
-
-    position:absolute;
-
-
-    bottom:15px;
-
-
-    left:100px;
-
-    right:100px;
-
-
-    display:flex;
-
-    gap:20px;
-
+top:40px;
 
 }
 
 
 
-.buttons button{
 
 
-    flex:1;
+
+/* BUTTONS */
 
 
-    height:55px;
+.actions{
 
+position:absolute;
 
-    background:#07172f;
+bottom:10px;
 
+left:80px;
 
-    color:white;
+right:80px;
 
+display:flex;
 
-    border:2px solid #008cff;
-
-
-    border-radius:12px;
-
-
-    font-weight:bold;
-
+gap:20px;
 
 }
 
 
 
-.buttons .play{
+.actions button{
 
-    border-color:#ff6600;
+height:55px;
 
-    box-shadow:
-    0 0 20px #ff6600;
+flex:1;
+
+background:#07172d;
+
+color:white;
+
+border:2px solid #008cff;
+
+font-weight:bold;
+
+}
+
+
+
+.actions .play{
+
+border-color:#ff6600;
 
 }
