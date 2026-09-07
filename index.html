@@ -1,240 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Shinobi Clash</title>
+<title>Shinobi Clash</title>
 
-    <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
 
 <div class="game">
 
-    <!-- HEADER -->
-    <header>
-        <div class="logo">
-            <span>忍</span>
-            <div>
-                <h1>SHINOBI</h1>
-                <p>CLASH</p>
-            </div>
-        </div>
 
-        <button class="restart">↻</button>
-    </header>
+<!-- BACKGROUND LAYERS -->
 
+<div class="sky"></div>
+<img class="moon" src="assets/moon.png">
+<img class="mountain back" src="assets/mountains-back.png">
+<img class="mountain front" src="assets/mountains-front.png">
+<img class="village" src="assets/village-lights.png">
+<img class="fog" src="assets/fog.png">
 
-    <!-- ENEMY HUD -->
-    <section class="player-panel enemy">
 
-        <img src="assets/enemy.png">
+<!-- HEADER -->
 
-        <div class="info">
-            <h2>SHADOWWOLF</h2>
-            <p>JŌNIN • LV.15</p>
-        </div>
+<header>
 
-        <div class="chakra">
-            <label>CHAKRA</label>
-            <strong>48</strong>
-            <div class="bar">
-                <div></div>
-            </div>
-        </div>
+<img src="assets/logo.png" class="logo">
 
-        <div class="cards">
-            CARD
-            <b>5</b>
-        </div>
+<button class="restart">
+↻
+</button>
 
-    </section>
+</header>
 
 
 
-    <!-- TURN -->
-    <div class="turn enemy-turn">
-        ◉ SHADOWWOLF TURN
-    </div>
+<!-- ENEMY -->
 
+<section class="fighter enemy">
 
-    <!-- FIELD -->
-    <main class="battlefield">
+<img src="assets/shadowwolf.png" class="avatar">
 
-        <div class="pile">
-            <img src="assets/card-back.png">
-            <p>DRAW PILE</p>
-            <b>12</b>
-        </div>
 
+<div class="fighter-info">
 
-        <div class="active-card lightning">
+<h2>SHADOWWOLF</h2>
 
-            <h3>LIGHTNING</h3>
+<p>JŌNIN • LV 15</p>
 
-            <h1>7</h1>
 
-            <p>CHAKRA</p>
+<div class="chakra-bar">
 
-        </div>
+<span>CHAKRA</span>
 
+<div>
+<b></b>
+</div>
 
-        <div class="pile">
+<strong>
+48
+</strong>
 
-            <div class="fire-card">
-                FIRE
-                <h1>5</h1>
-                CHAKRA
-            </div>
+</div>
 
-            <p>DISCARD PILE</p>
-            <b>3</b>
+</div>
 
-        </div>
 
-    </main>
+<div class="hand-count">
 
+CARDS
 
+<h2>
+5
+</h2>
 
+</div>
 
-    <!-- PLAYER HUD -->
 
-    <section class="player-panel player">
+</section>
 
-        <img src="assets/player.png">
 
-        <div class="info">
 
-            <h2>EMMANUEL</h2>
+<div class="turn enemy-turn">
 
-            <p>CHŪNIN • LV.12</p>
+◉ SHADOWWOLF TURN
 
-        </div>
+</div>
 
 
-        <div class="chakra">
 
-            <label>CHAKRA</label>
 
-            <strong>62</strong>
 
-            <div class="bar blue">
-                <div></div>
-            </div>
+<!-- BATTLEFIELD -->
 
-        </div>
+<section class="arena">
 
 
-    </section>
+<div class="deck">
 
+<img src="assets/card-back.png">
 
+<p>DRAW</p>
 
-    <!-- HAND -->
+<b>12</b>
 
-    <section class="hand">
+</div>
 
 
-        <div class="card wind">
 
-            <h3>WIND</h3>
+<div class="active-card">
 
-            <strong>2</strong>
+<img src="assets/card-frame-blue.png">
 
-            <p>CHAKRA</p>
 
-        </div>
+<div class="card-content">
 
+<img src="assets/lightning.png">
 
-        <div class="card fire">
+<h2>
+7
+</h2>
 
-            <h3>FIRE</h3>
+<p>
+CHAKRA
+</p>
 
-            <strong>5</strong>
+</div>
 
-            <p>CHAKRA</p>
 
-        </div>
+</div>
 
 
-        <div class="card lightning">
 
-            <h3>LIGHTNING</h3>
 
-            <strong>CHIDORI</strong>
+<div class="discard">
 
-            <p>JUTSU</p>
+<div class="mini-card">
 
-        </div>
+<img src="assets/card-frame-red.png">
 
+<img src="assets/fire.png">
 
-        <div class="card water">
+</div>
 
-            <h3>WATER</h3>
 
-            <strong>5</strong>
+<p>DISCARD</p>
 
-            <p>CHAKRA</p>
+<b>3</b>
 
-        </div>
+</div>
 
 
-        <div class="card jutsu">
+</section>
 
-            <h3>JUTSU</h3>
 
-            <strong>RASENGAN</strong>
 
-            <p>SPECIAL</p>
 
-        </div>
 
+<!-- PLAYER -->
 
-        <div class="card earth">
+<section class="fighter player">
 
-            <h3>EARTH</h3>
 
-            <strong>8</strong>
+<img src="assets/emmanuel.png" class="avatar">
 
-            <p>CHAKRA</p>
 
-        </div>
+<div class="fighter-info">
 
+<h2>EMMANUEL</h2>
 
-    </section>
+<p>CHŪNIN • LV 12</p>
 
 
+<div class="chakra-bar blue">
 
-    <!-- ACTIONS -->
+<span>CHAKRA</span>
 
-    <footer>
+<div>
+<b></b>
+</div>
 
-        <button>DRAW CARD</button>
+<strong>
+62
+</strong>
 
-        <button class="play">
-            ▶ PLAY CARD
-        </button>
+</div>
 
 
-        <button>
-            ⚡ USE JUTSU
-        </button>
+</div>
 
 
-        <button>
-            ✦ KAGE ABILITY
-        </button>
+</section>
 
 
-    </footer>
+
+
+
+<!-- PLAYER HAND -->
+
+<section class="cards">
+
+
+<div class="card wind">
+
+<img src="assets/card-frame-blue.png">
+
+<img src="assets/wind.png">
+
+<h3>
+WIND
+</h3>
+
+</div>
+
+
+
+
+<div class="card fire">
+
+<img src="assets/card-frame-red.png">
+
+<img src="assets/fire.png">
+
+<h3>
+FIRE
+</h3>
+
+</div>
+
+
+
+
+<div class="card lightning">
+
+<img src="assets/card-frame-purple.png">
+
+<img src="assets/lightning.png">
+
+<h3>
+CHIDORI
+</h3>
+
+</div>
+
+
+
+
+<div class="card water">
+
+<img src="assets/card-frame-blue.png">
+
+<img src="assets/water.png">
+
+<h3>
+WATER
+</h3>
+
+</div>
+
+
+
+
+<div class="card jutsu">
+
+<img src="assets/card-frame-gold.png">
+
+<img src="assets/jutsu.png">
+
+<h3>
+JUTSU
+</h3>
+
+</div>
+
+
+
+
+<div class="card earth">
+
+<img src="assets/card-frame-gold.png">
+
+<img src="assets/earth.png">
+
+<h3>
+EARTH
+</h3>
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- ACTION BUTTONS -->
+
+<footer>
+
+
+<button>
+DRAW CARD
+</button>
+
+
+<button class="play">
+▶ PLAY CARD
+</button>
+
+
+<button>
+⚡ JUTSU
+</button>
+
+
+<button>
+✦ KAGE
+</button>
+
+
+</footer>
 
 
 
 </div>
 
 
+
 <script src="app.js"></script>
+
 
 </body>
 </html>
