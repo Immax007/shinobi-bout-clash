@@ -1,52 +1,90 @@
-// ==========================================
-// SHINOBI CLASH v5
-// LANDSCAPE BATTLE INTERFACE CONTROLLER
-// ==========================================
+// ======================================
+// SHINOBI CLASH
+// CORE INTERFACE CONTROLLER
+// ======================================
 
 
-console.log("⚔ Shinobi Clash v5 Loaded");
+console.log("🔥 Shinobi Clash Interface Loaded");
 
 
 
 
-// ================================
-// CARD SELECTION
-// ================================
+
+// ===============================
+// RESET BUTTON
+// ===============================
 
 
-const cards = document.querySelectorAll(".card");
+const resetButton =
+document.querySelector(".reset-btn");
+
+
+resetButton.addEventListener(
+"click",
+()=>{
+
+location.reload();
+
+});
+
+
+
+
+
+
+
+
+// ===============================
+// CARD SELECT SYSTEM
+// ===============================
+
+
+const cards =
+document.querySelectorAll(".hand-card");
+
 
 let selectedCard = null;
 
 
 
-cards.forEach(card => {
+cards.forEach(card=>{
 
 
-    card.addEventListener("click",()=>{
+card.addEventListener(
+"click",
+()=>{
 
 
-        cards.forEach(c=>{
+cards.forEach(c=>{
 
-            c.classList.remove("selected");
+c.style.transform="";
 
-        });
+c.style.filter="";
 
-
-
-        card.classList.add("selected");
-
-
-        selectedCard = card;
+});
 
 
 
-        console.log(
-            "Selected card"
-        );
+card.style.transform=
+"translateY(-25px) scale(1.1)";
 
 
-    });
+card.style.filter=
+"drop-shadow(0 0 20px cyan)";
+
+
+
+selectedCard=card;
+
+
+
+console.log(
+"Card Selected"
+);
+
+
+
+});
 
 
 });
@@ -57,61 +95,65 @@ cards.forEach(card => {
 
 
 
-// ================================
+// ===============================
 // PLAY CARD
-// ================================
+// ===============================
 
 
 const playButton =
-document.querySelector(".play");
+document.querySelector(".play-btn");
 
 
 
-playButton.onclick = ()=>{
+playButton.addEventListener(
+"click",
+()=>{
 
 
-    if(!selectedCard){
+if(!selectedCard){
 
-        alert(
-        "Select a card first"
-        );
+alert(
+"Select a card first"
+);
 
-        return;
+return;
 
-    }
-
-
-
-    selectedCard.classList.add(
-        "attack"
-    );
+}
 
 
 
-    console.log(
-        "Card played"
-    );
+selectedCard.style.transform=
+"translateY(-200px) scale(1.2)";
 
 
 
-    setTimeout(()=>{
-
-
-        selectedCard.classList.remove(
-            "attack"
-        );
-
-
-        selectedCard.classList.remove(
-            "selected"
-        );
-
-
-    },800);
+selectedCard.style.transition=
+".5s";
 
 
 
-};
+setTimeout(()=>{
+
+
+selectedCard.style.transform="";
+
+
+selectedCard.style.filter="";
+
+selectedCard=null;
+
+
+},700);
+
+
+
+console.log(
+"Card Played"
+);
+
+
+
+});
 
 
 
@@ -119,266 +161,215 @@ playButton.onclick = ()=>{
 
 
 
-// ================================
-// DRAW SYSTEM
-// ================================
+
+
+// ===============================
+// DRAW CARD
+// ===============================
 
 
 const drawButton =
 document.querySelector(
-".buttons button:first-child"
+".action-area button:first-child"
 );
 
 
 
-let deckAmount = 12;
+let cardsLeft = 12;
 
 
 
-drawButton.onclick = ()=>{
+drawButton.addEventListener(
+"click",
+()=>{
 
 
-    if(deckAmount <= 0){
+if(cardsLeft<=0){
 
-        alert(
-        "No cards left"
-        );
+return;
 
-        return;
-
-    }
-
-
-    deckAmount--;
+}
 
 
 
-    document.querySelector(
-    ".pile b"
-    ).innerText = deckAmount;
+cardsLeft--;
 
 
 
-    console.log(
-    "Drawing card..."
-    );
+const amount =
+document.querySelector(
+".deck strong"
+);
 
 
-};
-
-
-
-
+amount.textContent =
+cardsLeft;
 
 
 
-// ================================
+console.log(
+"Drawing Card"
+);
+
+
+
+});
+
+
+
+
+
+
+
+
+// ===============================
 // JUTSU EFFECT
-// ================================
+// ===============================
 
 
 const jutsuButton =
 document.querySelector(
-".buttons button:nth-child(3)"
+".action-area button:nth-child(3)"
 );
 
 
 
-jutsuButton.onclick = ()=>{
-
-
-    document.querySelector(
-    ".game"
-    )
-    .classList.add(
-    "jutsu"
-    );
-
-
-
-    setTimeout(()=>{
-
-
-        document.querySelector(
-        ".game"
-        )
-        .classList.remove(
-        "jutsu"
-        );
-
-
-    },1200);
-
-
-
-};
-
-
-
-
-
-
-
-// ================================
-// RESET GAME
-// ================================
+jutsuButton.addEventListener(
+"click",
+()=>{
 
 
 document.querySelector(
-".header button"
+".game-screen"
 )
-.onclick = ()=>{
-
-
-location.reload();
-
-
-};
+.style.filter=
+"brightness(2)";
 
 
 
+setTimeout(()=>{
+
+
+document.querySelector(
+".game-screen"
+)
+.style.filter=
+"";
+
+
+},500);
+
+
+
+});
 
 
 
 
 
 
-// ================================
-// VISUAL EFFECTS
-// ================================
+
+// ===============================
+// KAGE ABILITY
+// ===============================
 
 
-const style =
-document.createElement(
-"style"
+const kageButton =
+document.querySelector(
+".action-area button:nth-child(4)"
 );
 
 
 
-style.innerHTML = `
+kageButton.addEventListener(
+"click",
+()=>{
 
 
-.selected{
-
-
-transform:
-translateY(-35px)
-scale(1.12);
-
-
-filter:
-drop-shadow(
-0 0 25px cyan
+alert(
+"🔥 Kage Ability Activated"
 );
 
 
-z-index:50;
 
-
-}
-
-
-
-
-.attack{
-
-
-animation:
-attackMove .7s;
-
-
-}
-
-
-
-@keyframes attackMove{
-
-
-0%{
-
-transform:
-translate(0,-30px);
-
-}
-
-
-50%{
-
-transform:
-translate(250px,-40px)
-scale(1.2);
-
-
-}
-
-
-
-100%{
-
-transform:
-translate(0,0);
-
-
-}
-
-
-}
+});
 
 
 
 
-.jutsu{
-
-
-animation:
-chakraBurst .25s infinite alternate;
-
-
-}
 
 
 
-@keyframes chakraBurst{
 
 
-from{
-
-filter:
-brightness(1);
-
-}
+// ===============================
+// MOBILE SCALE HANDLER
+// ===============================
 
 
-
-to{
-
-filter:
-brightness(2);
-
-}
+function resizeGame(){
 
 
-}
+const game =
+document.querySelector(
+".game-screen"
+);
 
 
 
+const width =
+window.innerWidth;
+
+
+
+const height =
+window.innerHeight;
+
+
+
+const scale =
+Math.min(
+width/1280,
+height/720
+);
+
+
+
+game.style.transform =
+`
+scale(${scale})
 `;
 
 
 
-document.head.appendChild(style);
+game.style.transformOrigin =
+"center center";
+
+
+}
+
+
+
+window.addEventListener(
+"resize",
+resizeGame
+);
+
+
+
+resizeGame();
 
 
 
 
 
-// ==========================================
+// ======================================
 // NEXT PHASE:
 //
 // REAL CARD DATABASE
-// CHAKRA COSTS
-// ATTACK DAMAGE
-// TURN SYSTEM
+// CHAKRA COST
+// DAMAGE SYSTEM
 // ENEMY AI
+// ONLINE MATCH
 //
-// ==========================================
+// ======================================
