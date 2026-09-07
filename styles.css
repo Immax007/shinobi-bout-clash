@@ -33,15 +33,25 @@ html, body {
 
 
 
-.game-background img {
+.game-background {
 
-    position:absolute;
+    position:relative;
 
-    left:0;
+    width:100vw;
+    height:100vh;
 
-    width:100%;
+    overflow:hidden;
 
-    height:auto;
+    background:
+    linear-gradient(
+        rgba(0,5,15,.45),
+        rgba(0,5,15,.75)
+    ),
+    url("./assets/battlefield.jpg");
+
+    background-size:cover;
+
+    background-position:center;
 
 }
 
@@ -49,13 +59,13 @@ html, body {
 
 .moon {
 
-    width:250px !important;
+    width:180px !important;
 
-    left:auto !important;
+    top:70px;
 
-    right:100px;
+    right:18%;
 
-    top:30px;
+    opacity:.65;
 
 }
 
@@ -63,7 +73,13 @@ html, body {
 
 .mountains-back {
 
-    bottom:180px;
+    width:120% !important;
+
+    left:-10%;
+
+    bottom:230px;
+
+    opacity:.7;
 
 }
 
@@ -71,7 +87,11 @@ html, body {
 
 .village {
 
-    bottom:100px;
+    width:110% !important;
+
+    left:-5%;
+
+    bottom:140px;
 
 }
 
@@ -79,6 +99,39 @@ html, body {
 
 .mountains-front {
 
-    bottom:0;
+    width:120% !important;
+
+    left:-10%;
+
+    bottom:-80px;
+
+}
+
+
+.game-background::before {
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at 85% 50%,
+rgba(255,0,0,.35),
+transparent 35%
+),
+
+radial-gradient(
+circle at 15% 50%,
+rgba(0,150,255,.35),
+transparent 35%
+);
+
+pointer-events:none;
+
+z-index:10;
 
 }
