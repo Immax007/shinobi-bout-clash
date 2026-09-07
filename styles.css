@@ -163,3 +163,40 @@ z-index:10;
 
 }
 
+
+.enemy-panel {
+
+    position:absolute;
+
+    top:20px;
+
+    left:20px;
+
+    width:420px;
+
+    height:100px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    color:white;
+
+    background:rgba(0,0,0,.55);
+
+    border:2px solid #ff1744;
+
+}
+
+
+.enemy-panel img {
+
+    height:90px;
+
+    width:90px;
+
+    object-fit:cover;
+
+}
