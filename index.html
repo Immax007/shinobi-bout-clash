@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shinobi Clash</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="game">
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <span>忍</span>
+            <div>
+                <h1>SHINOBI</h1>
+                <p>CLASH</p>
+            </div>
+        </div>
+
+        <button class="restart">↻</button>
+    </header>
+
+
+    <!-- ENEMY HUD -->
+    <section class="player-panel enemy">
+
+        <img src="assets/enemy.png">
+
+        <div class="info">
+            <h2>SHADOWWOLF</h2>
+            <p>JŌNIN • LV.15</p>
+        </div>
+
+        <div class="chakra">
+            <label>CHAKRA</label>
+            <strong>48</strong>
+            <div class="bar">
+                <div></div>
+            </div>
+        </div>
+
+        <div class="cards">
+            CARD
+            <b>5</b>
+        </div>
+
+    </section>
+
+
+
+    <!-- TURN -->
+    <div class="turn enemy-turn">
+        ◉ SHADOWWOLF TURN
+    </div>
+
+
+    <!-- FIELD -->
+    <main class="battlefield">
+
+        <div class="pile">
+            <img src="assets/card-back.png">
+            <p>DRAW PILE</p>
+            <b>12</b>
+        </div>
+
+
+        <div class="active-card lightning">
+
+            <h3>LIGHTNING</h3>
+
+            <h1>7</h1>
+
+            <p>CHAKRA</p>
+
+        </div>
+
+
+        <div class="pile">
+
+            <div class="fire-card">
+                FIRE
+                <h1>5</h1>
+                CHAKRA
+            </div>
+
+            <p>DISCARD PILE</p>
+            <b>3</b>
+
+        </div>
+
+    </main>
+
+
+
+
+    <!-- PLAYER HUD -->
+
+    <section class="player-panel player">
+
+        <img src="assets/player.png">
+
+        <div class="info">
+
+            <h2>EMMANUEL</h2>
+
+            <p>CHŪNIN • LV.12</p>
+
+        </div>
+
+
+        <div class="chakra">
+
+            <label>CHAKRA</label>
+
+            <strong>62</strong>
+
+            <div class="bar blue">
+                <div></div>
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- HAND -->
+
+    <section class="hand">
+
+
+        <div class="card wind">
+
+            <h3>WIND</h3>
+
+            <strong>2</strong>
+
+            <p>CHAKRA</p>
+
+        </div>
+
+
+        <div class="card fire">
+
+            <h3>FIRE</h3>
+
+            <strong>5</strong>
+
+            <p>CHAKRA</p>
+
+        </div>
+
+
+        <div class="card lightning">
+
+            <h3>LIGHTNING</h3>
+
+            <strong>CHIDORI</strong>
+
+            <p>JUTSU</p>
+
+        </div>
+
+
+        <div class="card water">
+
+            <h3>WATER</h3>
+
+            <strong>5</strong>
+
+            <p>CHAKRA</p>
+
+        </div>
+
+
+        <div class="card jutsu">
+
+            <h3>JUTSU</h3>
+
+            <strong>RASENGAN</strong>
+
+            <p>SPECIAL</p>
+
+        </div>
+
+
+        <div class="card earth">
+
+            <h3>EARTH</h3>
+
+            <strong>8</strong>
+
+            <p>CHAKRA</p>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ACTIONS -->
+
+    <footer>
+
+        <button>DRAW CARD</button>
+
+        <button class="play">
+            ▶ PLAY CARD
+        </button>
+
+
+        <button>
+            ⚡ USE JUTSU
+        </button>
+
+
+        <button>
+            ✦ KAGE ABILITY
+        </button>
+
+
+    </footer>
+
+
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
