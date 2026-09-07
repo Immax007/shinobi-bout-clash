@@ -17,87 +17,112 @@
 <body>
 
 
-<div class="game">
+<div class="game-screen">
 
 
-<!-- BACKGROUND -->
+<!-- ================= BACKGROUND ================= -->
 
-<div class="background"></div>
 
-<img src="assets/moon.png" class="moon">
-
-<img src="assets/village-lights.png" class="village">
-
-<img src="assets/fog.png" class="fog">
+<div class="background-layer"></div>
 
 
 
 
 
-<!-- HEADER -->
 
-<div class="header">
 
-<img src="assets/logo.png">
+<!-- ================= HEADER ================= -->
 
-<button>
+
+<header class="header-layer">
+
+
+<img class="logo" src="assets/logo.png">
+
+
+<button class="reset-btn">
 ↻
 </button>
 
+
+</header>
+
+
+
+
+
+
+
+
+<!-- ================= ENEMY AREA ================= -->
+
+
+<section class="enemy-area">
+
+
+<div class="fighter-card enemy">
+
+
+<img 
+class="avatar"
+src="assets/shadowwolf.png"
+>
+
+
+<div class="fighter-info">
+
+
+<h2>
+SHADOWWOLF
+</h2>
+
+
+<p>
+JŌNIN • LV.15
+</p>
+
+
+
+<div class="chakra-row">
+
+<span>
+CHAKRA
+</span>
+
+
+<div class="chakra-bar">
+
+<div class="enemy-chakra"></div>
+
+</div>
+
+
+<b>
+48
+</b>
+
+
+</div>
+
+
+
 </div>
 
 
 
 
 
-
-<!-- ENEMY BAR -->
-
-<section class="enemy-panel">
+<div class="enemy-hand">
 
 
-<div class="portrait">
-
-<img src="assets/shadowwolf.png">
-
-</div>
-
-
-<div class="info">
-
-<h1>SHADOWWOLF</h1>
-
-<p>JŌNIN • LV.15</p>
-
-
-<div class="chakra">
-
-<span>CHAKRA</span>
-
-<div class="bar">
-
-<div></div>
-
-</div>
-
-
-<b>48</b>
+<img src="assets/card-back.png">
+<img src="assets/card-back.png">
+<img src="assets/card-back.png">
+<img src="assets/card-back.png">
+<img src="assets/card-back.png">
 
 
 </div>
-
-
-</div>
-
-
-
-<div class="enemy-cards">
-
-<img src="assets/card-back.png">
-<img src="assets/card-back.png">
-<img src="assets/card-back.png">
-<img src="assets/card-back.png">
-<img src="assets/card-back.png">
 
 
 </div>
@@ -110,10 +135,14 @@
 
 
 
-<!-- TURN -->
 
 
-<div class="turn enemy-turn">
+
+
+<!-- ================= TURN ================= -->
+
+
+<div class="turn-banner enemy-turn">
 
 ◉ SHADOWWOLF TURN
 
@@ -125,23 +154,27 @@
 
 
 
-<!-- CENTER FIELD -->
 
 
-<div class="field">
+<!-- ================= BATTLE FIELD ================= -->
 
 
-<div class="pile">
+<section class="battle-area">
+
+
+<div class="deck">
+
 
 <img src="assets/card-back.png">
 
-<label>
+<p>
 DRAW PILE
-</label>
+</p>
 
-<b>
+<strong>
 12
-</b>
+</strong>
+
 
 </div>
 
@@ -149,19 +182,23 @@ DRAW PILE
 
 
 
-
-<div class="active">
-
-
-<img src="assets/card-frame-blue.png">
+<div class="battle-card">
 
 
-<img src="assets/lightning.png" class="element">
+<img 
+src="assets/card-frame-blue.png"
+>
 
 
-<strong>
+<img
+class="card-art"
+src="assets/lightning.png"
+>
+
+
+<h1>
 7
-</strong>
+</h1>
 
 
 <span>
@@ -176,74 +213,24 @@ CHAKRA
 
 
 
-<div class="pile">
+
+<div class="deck">
 
 
 <img src="assets/fire.png">
 
-<label>
+
+<p>
 DISCARD PILE
-</label>
+</p>
 
-<b>
+
+<strong>
 3
-</b>
+</strong>
 
 
 </div>
-
-
-
-</div>
-
-
-
-
-
-
-
-<!-- PLAYER BAR -->
-
-<section class="player-panel">
-
-
-<div class="portrait">
-
-<img src="assets/emmanuel.png">
-
-</div>
-
-
-<div class="info">
-
-
-<h1>EMMANUEL</h1>
-
-<p>CHŪNIN • LV.12</p>
-
-
-
-<div class="chakra">
-
-<span>CHAKRA</span>
-
-<div class="bar blue">
-
-<div></div>
-
-</div>
-
-
-<b>
-62
-</b>
-
-
-</div>
-
-
-</div>
-
 
 
 
@@ -256,12 +243,86 @@ DISCARD PILE
 
 
 
-<!-- HAND -->
 
-<div class="hand">
+<!-- ================= PLAYER AREA ================= -->
 
 
-<div class="card">
+<section class="player-area">
+
+
+<div class="fighter-card player">
+
+
+<img 
+class="avatar"
+src="assets/emmanuel.png"
+>
+
+
+
+<div class="fighter-info">
+
+
+<h2>
+EMMANUEL
+</h2>
+
+
+<p>
+CHŪNIN • LV.12
+</p>
+
+
+
+<div class="chakra-row">
+
+
+<span>
+CHAKRA
+</span>
+
+
+
+<div class="chakra-bar">
+
+<div class="player-chakra"></div>
+
+</div>
+
+
+<b>
+62
+</b>
+
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ================= PLAYER HAND ================= -->
+
+
+<section class="hand-area">
+
+
+<div class="hand-card">
 
 <img src="assets/card-frame-blue.png">
 
@@ -271,7 +332,7 @@ DISCARD PILE
 
 
 
-<div class="card">
+<div class="hand-card">
 
 <img src="assets/card-frame-red.png">
 
@@ -281,7 +342,7 @@ DISCARD PILE
 
 
 
-<div class="card">
+<div class="hand-card">
 
 <img src="assets/card-frame-blue.png">
 
@@ -291,7 +352,7 @@ DISCARD PILE
 
 
 
-<div class="card">
+<div class="hand-card">
 
 <img src="assets/card-frame-blue.png">
 
@@ -301,7 +362,7 @@ DISCARD PILE
 
 
 
-<div class="card">
+<div class="hand-card">
 
 <img src="assets/card-frame-purple.png">
 
@@ -311,7 +372,7 @@ DISCARD PILE
 
 
 
-<div class="card">
+<div class="hand-card">
 
 <img src="assets/card-frame-gold.png">
 
@@ -320,7 +381,8 @@ DISCARD PILE
 </div>
 
 
-</div>
+
+</section>
 
 
 
@@ -329,34 +391,42 @@ DISCARD PILE
 
 
 
-<!-- BUTTONS -->
+
+<!-- ================= BUTTONS ================= -->
 
 
-<div class="buttons">
+<nav class="action-area">
+
 
 <button>
 DRAW CARD
 </button>
 
-<button class="play">
+
+<button class="play-btn">
 ▶ PLAY CARD
 </button>
+
 
 <button>
 ⚡ USE JUTSU
 </button>
+
 
 <button>
 ✦ KAGE ABILITY
 </button>
 
 
+
+</nav>
+
+
+
+
+
 </div>
 
-
-
-
-</div>
 
 
 <script src="app.js"></script>
