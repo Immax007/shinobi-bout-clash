@@ -1,808 +1,144 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* =========================
-   SHINOBI CLASH BACKGROUND
-========================= */
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #020712;
+}
 
 
-.battlefield-background{
+.game-background {
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background-image: url("assets/battlefield.jpg");
+    background-size: cover;
+    background-position: center;
+
+}
+
+
+
+/* moon */
+
+.moon {
 
     position:absolute;
 
-    inset:0;
+    width:260px;
 
-    width:100%;
-
-    height:100%;
-
-
-    background-image:
-
-    linear-gradient(
-        rgba(0,10,35,.25),
-        rgba(0,0,0,.65)
-    ),
-
-    url("assets/battlefield.jpg");
-
-
-    background-size:cover;
-
-    background-position:center;
-
-
-    overflow:hidden;
-
-    z-index:0;
-
-}
-
-
-
-
-
-/* BLUE CINEMATIC ATMOSPHERE */
-
-.bg-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-
-    background:
-
-    radial-gradient(
-        circle at 50% 20%,
-        rgba(80,170,255,.25),
-        transparent 45%
-    ),
-
-
-    linear-gradient(
-        90deg,
-        rgba(255,30,30,.15),
-        transparent 25%,
-        transparent 75%,
-        rgba(255,30,30,.18)
-    );
-
-
-}
-
-
-
-
-
-/* DARK EDGES LIKE THE MOCKUP */
-
-.bg-vignette{
-
-    position:absolute;
-
-    inset:-5%;
-
-
-    background:
-
-    radial-gradient(
-        transparent 45%,
-        rgba(0,0,0,.75)
-    );
-
-
-}
-
-
-
-html,body{
-
-    width:100%;
-    height:100%;
-
-    overflow:hidden;
-
-    background:#000;
-
-}
-
-
-
-
-
-/* =========================
-MAIN GAME BOARD
-========================= */
-
-
-.game-screen{
-
-    position:relative;
-
-    width:100vw;
-    height:100vh;
-
-    max-width:1280px;
-    max-height:720px;
-
-    margin:auto;
-
-    overflow:hidden;
-
-    background:#020817;
-
-}
-
-
-
-
-
-/* =========================
-BACKGROUND
-========================= */
-
-
-.background-layer{
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-    linear-gradient(
-        rgba(0,0,25,.25),
-        rgba(0,0,0,.65)
-    ),
-
-    url("assets/battlefield.jpg");
-
-
-    background-size:cover;
-
-    background-position:center;
-
-    z-index:0;
-
-}
-
-
-
-
-
-
-/* =========================
-HEADER
-========================= */
-
-
-.header-layer{
-
-    position:absolute;
-
-    top:15px;
-
-    left:25px;
-
-    right:25px;
-
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-
-    z-index:10;
-
-}
-
-
-
-.logo{
-
-    width:170px;
-
-}
-
-
-
-.reset-btn{
-
-    width:55px;
-
-    height:55px;
-
-
-    border-radius:15px;
-
-
-    background:#06182f;
-
-    border:2px solid #008cff;
-
-
-    color:white;
-
-    font-size:30px;
-
-}
-
-
-
-
-
-
-
-
-/* =========================
-FIGHTER PANELS
-========================= */
-
-
-.enemy-area,
-.player-area{
-
-
-    position:absolute;
-
-    left:30px;
-
-    right:30px;
-
-
-    z-index:5;
-
-}
-
-
-
-.enemy-area{
-
-    top:90px;
-
-}
-
-
-
-.player-area{
-
-    bottom:185px;
-
-}
-
-
-
-
-
-
-
-.fighter-card{
-
-    height:105px;
-
-    display:flex;
-
-    align-items:center;
-
-
-    background:
-
-    rgba(3,15,35,.85);
-
-
-}
-
-
-
-.enemy{
-
-    border:3px solid #ff1735;
-
-}
-
-
-
-.player{
-
-    border:3px solid #008cff;
-
-}
-
-
-
-
-
-
-.avatar{
-
-    width:85px;
-
-    height:85px;
-
-    margin-left:15px;
-
-
-    object-fit:cover;
-
-
-    border-radius:15px;
-
-}
-
-
-
-
-
-
-.fighter-info{
-
-    flex:1;
-
-    padding-left:20px;
-
-}
-
-
-
-.fighter-info h2{
-
-    color:white;
-
-    font-size:25px;
-
-    letter-spacing:4px;
-
-}
-
-
-
-.fighter-info p{
-
-    color:#bbb;
-
-    margin-top:5px;
-
-}
-
-
-
-
-
-
-
-.chakra-row{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    margin-top:8px;
-
-    color:white;
-
-}
-
-
-
-.chakra-bar{
-
-    width:230px;
-
-    height:14px;
-
-    background:#111a32;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-}
-
-
-
-.enemy-chakra{
-
-    height:100%;
-
-    width:60%;
-
-    background:#ff9900;
-
-}
-
-
-
-.player-chakra{
-
-    height:100%;
-
-    width:70%;
-
-    background:#00d9ff;
-
-}
-
-
-
-
-
-
-
-.enemy-hand{
-
-    display:flex;
-
-    margin-right:30px;
-
-}
-
-
-
-.enemy-hand img{
-
-    width:55px;
-
-    margin-left:-20px;
-
-}
-
-
-
-
-
-
-
-
-/* =========================
-TURN BANNER
-========================= */
-
-
-.turn-banner{
-
-    position:absolute;
-
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-
-    width:360px;
-
-    height:45px;
-
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-
-    font-weight:bold;
-
-    letter-spacing:3px;
-
-
-    z-index:10;
-
-
-}
-
-
-
-.enemy-turn{
-
-    top:215px;
-
-    background:#560008;
-
-    border:2px solid red;
-
-    color:white;
-
-}
-
-
-
-
-
-
-/* =========================
-BATTLE AREA
-========================= */
-
-
-.battle-area{
-
-    position:absolute;
-
-
-    top:270px;
-
-    left:0;
-
-    right:0;
-
-
-    display:flex;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-    gap:100px;
-
-
-    z-index:5;
-
-}
-
-
-
-
-
-
-.deck{
-
-    text-align:center;
-
-    color:white;
-
-}
-
-
-
-.deck img{
-
-    width:130px;
-
-}
-
-
-
-.deck p{
-
-    margin-top:5px;
-
-    font-weight:bold;
-
-}
-
-
-
-.deck strong{
-
-    font-size:22px;
-
-}
-
-
-
-
-
-
-
-.battle-card{
-
-    width:150px;
-
-    height:210px;
-
-    position:relative;
-
-}
-
-
-
-.battle-card>img:first-child{
-
-    width:100%;
-
-    height:100%;
-
-    position:absolute;
-
-}
-
-
-
-.card-art{
-
-    width:80px;
-
-    position:absolute;
-
+    right:20%;
     top:40px;
 
-    left:35px;
+    opacity:.9;
+
+}
+
+
+/* far mountains */
+
+.mountains-back {
+
+    position:absolute;
+
+    width:100%;
+    height:auto;
+
+    bottom:150px;
 
 }
 
 
 
-.battle-card h1{
+/* village lights */
+
+.village {
 
     position:absolute;
-
-    bottom:35px;
 
     width:100%;
 
-
-    text-align:center;
-
-    color:white;
-
-    font-size:45px;
+    bottom:80px;
 
 }
 
 
 
-.battle-card span{
+/* front mountains */
+
+.mountains-front {
 
     position:absolute;
-
-    bottom:12px;
 
     width:100%;
 
-
-    text-align:center;
-
-    color:white;
+    bottom:0;
 
 }
 
 
 
+/* moving fog */
 
-
-
-
-/* =========================
-HAND
-========================= */
-
-
-.hand-area{
+.fog-layer {
 
     position:absolute;
 
+    inset:0;
 
-    bottom:65px;
+    background-image:url("assets/fog.png");
 
+    background-size:cover;
 
-    left:0;
+    opacity:.35;
 
-    right:0;
-
-
-    display:flex;
-
-    justify-content:center;
-
-
-    z-index:10;
+    animation:fogMove 20s linear infinite;
 
 }
 
 
 
-
-.hand-card{
-
-    width:115px;
-
-    height:160px;
-
-    position:relative;
+@keyframes fogMove {
 
 
-    margin-left:-15px;
+from {
+
+transform:translateX(0);
+
+}
+
+
+to {
+
+transform:translateX(-200px);
+
+}
+
 
 }
 
 
 
-.hand-card img:first-child{
+/* mist */
+
+.mist {
+
+    position:absolute;
+
+    bottom:0;
 
     width:100%;
 
-    height:100%;
-
-    position:absolute;
-
-}
-
-
-
-.hand-card img:nth-child(2){
-
-    width:70px;
-
-    position:absolute;
-
-    top:35px;
-
-    left:22px;
-
-}
-
-
-
-
-
-
-
-/* =========================
-BUTTONS
-========================= */
-
-
-.action-area{
-
-    position:absolute;
-
-
-    bottom:10px;
-
-
-    left:60px;
-
-    right:60px;
-
-
-    display:flex;
-
-    gap:15px;
-
-
-    z-index:20;
-
-}
-
-
-
-.action-area button{
-
-    flex:1;
-
-    height:45px;
-
-
-    background:#07172e;
-
-
-    border:2px solid #008cff;
-
-
-    color:white;
-
-
-    font-weight:bold;
-
-
-}
-
-
-
-.play-btn{
-
-    border-color:#ff6600!important;
+    opacity:.45;
 
 }
