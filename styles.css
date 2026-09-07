@@ -1,92 +1,46 @@
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 
 html,body{
 
-width:100%;
-height:100%;
+    width:100%;
+    height:100%;
 
-overflow:hidden;
+    overflow:hidden;
 
-background:#000;
+    background:#000;
 
 }
 
 
 
-/* MAIN GAME BOARD */
+
+
+/* =========================
+MAIN GAME BOARD
+========================= */
+
 
 .game-screen{
 
-position:absolute;
+    position:relative;
 
-width:1280px;
+    width:100vw;
+    height:100vh;
 
-height:720px;
+    max-width:1280px;
+    max-height:720px;
 
-left:50%;
+    margin:auto;
 
-top:50%;
+    overflow:hidden;
 
-transform:
-translate(-50%,-50%)
-scale(var(--scale));
-
-
-overflow:hidden;
-
-background:#050b18;
-
-}
-
-
-
-/* SCALE SYSTEM */
-
-:root{
-
---scale:1;
-
-}
-
-
-
-@media(max-width:700px){
-
-.game-screen{
-
---scale:.52;
-
-}
-
-}
-
-
-
-@media(max-width:500px){
-
-.game-screen{
-
---scale:.40;
-
-}
-
-}
-
-
-
-@media(max-width:380px){
-
-.game-screen{
-
---scale:.33;
-
-}
+    background:#020817;
 
 }
 
@@ -94,49 +48,64 @@ background:#050b18;
 
 
 
-/* BACKGROUND */
+/* =========================
+BACKGROUND
+========================= */
 
-.battle-bg{
 
-position:absolute;
+.background-layer{
 
-inset:0;
+    position:absolute;
 
-background:
+    inset:0;
 
-linear-gradient(
-rgba(0,0,30,.2),
-rgba(0,0,0,.55)
-),
+    background:
 
-url("assets/battlefield.jpg");
+    linear-gradient(
+        rgba(0,0,25,.25),
+        rgba(0,0,0,.65)
+    ),
 
-background-size:cover;
+    url("assets/battlefield.jpg");
 
-background-position:center;
+
+    background-size:cover;
+
+    background-position:center;
+
+    z-index:0;
 
 }
 
 
 
 
-/* HEADER */
 
-.top-header{
 
-position:absolute;
+/* =========================
+HEADER
+========================= */
 
-top:20px;
 
-left:35px;
+.header-layer{
 
-right:35px;
+    position:absolute;
 
-display:flex;
+    top:15px;
 
-justify-content:space-between;
+    left:25px;
 
-z-index:10;
+    right:25px;
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    z-index:10;
 
 }
 
@@ -144,185 +113,30 @@ z-index:10;
 
 .logo{
 
-width:200px;
+    width:170px;
 
 }
 
 
 
-.restart{
+.reset-btn{
 
-width:60px;
+    width:55px;
 
-height:60px;
+    height:55px;
 
-border-radius:18px;
 
-background:#06172d;
+    border-radius:15px;
 
-border:3px solid #008cff;
 
-color:white;
+    background:#06182f;
 
-font-size:35px;
+    border:2px solid #008cff;
 
-}
 
+    color:white;
 
-
-
-
-/* TOP PLAYER PANEL */
-
-
-.enemy-hud,
-.player-hud{
-
-
-position:absolute;
-
-left:35px;
-
-right:35px;
-
-
-height:95px;
-
-
-display:flex;
-
-align-items:center;
-
-
-background:
-rgba(5,15,35,.85);
-
-
-}
-
-
-.enemy-hud{
-
-top:95px;
-
-border:3px solid #ff1935;
-
-}
-
-
-
-.player-hud{
-
-bottom:150px;
-
-border:3px solid #009cff;
-
-}
-
-
-
-
-.portrait{
-
-width:80px;
-
-height:80px;
-
-margin-left:10px;
-
-}
-
-
-
-.portrait img{
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
-}
-
-
-
-
-
-.name-box{
-
-padding-left:20px;
-
-flex:1;
-
-}
-
-
-
-.name-box h2{
-
-font-size:28px;
-
-letter-spacing:5px;
-
-}
-
-
-
-.name-box p{
-
-font-size:18px;
-
-color:#aaa;
-
-}
-
-
-
-
-
-.chakra{
-
-display:flex;
-
-align-items:center;
-
-gap:15px;
-
-}
-
-
-
-.chakra-track{
-
-width:200px;
-
-height:15px;
-
-background:#111a33;
-
-}
-
-
-
-.enemy-energy{
-
-height:100%;
-
-width:60%;
-
-background:#ff9d00;
-
-}
-
-
-
-.player-energy{
-
-height:100%;
-
-width:70%;
-
-background:#00d9ff;
+    font-size:30px;
 
 }
 
@@ -331,30 +145,263 @@ background:#00d9ff;
 
 
 
-/* TURN BAR */
 
 
-.turn{
+/* =========================
+FIGHTER PANELS
+========================= */
 
-position:absolute;
 
-left:400px;
+.enemy-area,
+.player-area{
 
-width:480px;
 
-height:50px;
+    position:absolute;
 
-display:flex;
+    left:30px;
 
-justify-content:center;
+    right:30px;
 
-align-items:center;
 
-font-size:22px;
+    z-index:5;
 
-font-weight:bold;
+}
 
-letter-spacing:4px;
+
+
+.enemy-area{
+
+    top:90px;
+
+}
+
+
+
+.player-area{
+
+    bottom:185px;
+
+}
+
+
+
+
+
+
+
+.fighter-card{
+
+    height:105px;
+
+    display:flex;
+
+    align-items:center;
+
+
+    background:
+
+    rgba(3,15,35,.85);
+
+
+}
+
+
+
+.enemy{
+
+    border:3px solid #ff1735;
+
+}
+
+
+
+.player{
+
+    border:3px solid #008cff;
+
+}
+
+
+
+
+
+
+.avatar{
+
+    width:85px;
+
+    height:85px;
+
+    margin-left:15px;
+
+
+    object-fit:cover;
+
+
+    border-radius:15px;
+
+}
+
+
+
+
+
+
+.fighter-info{
+
+    flex:1;
+
+    padding-left:20px;
+
+}
+
+
+
+.fighter-info h2{
+
+    color:white;
+
+    font-size:25px;
+
+    letter-spacing:4px;
+
+}
+
+
+
+.fighter-info p{
+
+    color:#bbb;
+
+    margin-top:5px;
+
+}
+
+
+
+
+
+
+
+.chakra-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-top:8px;
+
+    color:white;
+
+}
+
+
+
+.chakra-bar{
+
+    width:230px;
+
+    height:14px;
+
+    background:#111a32;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+
+.enemy-chakra{
+
+    height:100%;
+
+    width:60%;
+
+    background:#ff9900;
+
+}
+
+
+
+.player-chakra{
+
+    height:100%;
+
+    width:70%;
+
+    background:#00d9ff;
+
+}
+
+
+
+
+
+
+
+.enemy-hand{
+
+    display:flex;
+
+    margin-right:30px;
+
+}
+
+
+
+.enemy-hand img{
+
+    width:55px;
+
+    margin-left:-20px;
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+TURN BANNER
+========================= */
+
+
+.turn-banner{
+
+    position:absolute;
+
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+
+    width:360px;
+
+    height:45px;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    font-weight:bold;
+
+    letter-spacing:3px;
+
+
+    z-index:10;
+
 
 }
 
@@ -362,23 +409,13 @@ letter-spacing:4px;
 
 .enemy-turn{
 
-top:210px;
+    top:215px;
 
-background:#5b0008;
+    background:#560008;
 
-border:3px solid red;
+    border:2px solid red;
 
-}
-
-
-
-.player-turn{
-
-bottom:280px;
-
-background:#00365c;
-
-border:3px solid cyan;
+    color:white;
 
 }
 
@@ -386,113 +423,37 @@ border:3px solid cyan;
 
 
 
-/* CENTER AREA */
+
+/* =========================
+BATTLE AREA
+========================= */
 
 
-.battle-table{
+.battle-area{
 
-position:absolute;
-
-top:285px;
-
-left:0;
-
-right:0;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-gap:90px;
-
-}
+    position:absolute;
 
 
+    top:270px;
 
-.pile img{
+    left:0;
 
-width:130px;
-
-}
-
+    right:0;
 
 
-.active-card{
-
-width:150px;
-
-height:210px;
-
-}
+    display:flex;
 
 
-
-.element{
-
-width:90px;
-
-}
+    justify-content:center;
 
 
+    align-items:center;
 
 
-
-/* PLAYER HAND */
-
-
-.player-hand{
-
-position:absolute;
-
-bottom:65px;
-
-left:0;
-
-right:0;
-
-display:flex;
-
-justify-content:center;
-
-}
+    gap:100px;
 
 
-
-.card{
-
-width:115px;
-
-height:170px;
-
-margin-left:-18px;
-
-}
-
-
-
-.card img:first-child{
-
-width:100%;
-
-height:100%;
-
-position:absolute;
-
-}
-
-
-
-.card img:nth-child(2){
-
-width:70px;
-
-position:absolute;
-
-left:22px;
-
-top:40px;
+    z-index:5;
 
 }
 
@@ -501,47 +462,253 @@ top:40px;
 
 
 
-/* BUTTONS */
+.deck{
 
+    text-align:center;
 
-.actions{
-
-position:absolute;
-
-bottom:10px;
-
-left:80px;
-
-right:80px;
-
-display:flex;
-
-gap:20px;
+    color:white;
 
 }
 
 
 
-.actions button{
+.deck img{
 
-height:55px;
-
-flex:1;
-
-background:#07172d;
-
-color:white;
-
-border:2px solid #008cff;
-
-font-weight:bold;
+    width:130px;
 
 }
 
 
 
-.actions .play{
+.deck p{
 
-border-color:#ff6600;
+    margin-top:5px;
+
+    font-weight:bold;
+
+}
+
+
+
+.deck strong{
+
+    font-size:22px;
+
+}
+
+
+
+
+
+
+
+.battle-card{
+
+    width:150px;
+
+    height:210px;
+
+    position:relative;
+
+}
+
+
+
+.battle-card>img:first-child{
+
+    width:100%;
+
+    height:100%;
+
+    position:absolute;
+
+}
+
+
+
+.card-art{
+
+    width:80px;
+
+    position:absolute;
+
+    top:40px;
+
+    left:35px;
+
+}
+
+
+
+.battle-card h1{
+
+    position:absolute;
+
+    bottom:35px;
+
+    width:100%;
+
+
+    text-align:center;
+
+    color:white;
+
+    font-size:45px;
+
+}
+
+
+
+.battle-card span{
+
+    position:absolute;
+
+    bottom:12px;
+
+    width:100%;
+
+
+    text-align:center;
+
+    color:white;
+
+}
+
+
+
+
+
+
+
+/* =========================
+HAND
+========================= */
+
+
+.hand-area{
+
+    position:absolute;
+
+
+    bottom:65px;
+
+
+    left:0;
+
+    right:0;
+
+
+    display:flex;
+
+    justify-content:center;
+
+
+    z-index:10;
+
+}
+
+
+
+
+.hand-card{
+
+    width:115px;
+
+    height:160px;
+
+    position:relative;
+
+
+    margin-left:-15px;
+
+}
+
+
+
+.hand-card img:first-child{
+
+    width:100%;
+
+    height:100%;
+
+    position:absolute;
+
+}
+
+
+
+.hand-card img:nth-child(2){
+
+    width:70px;
+
+    position:absolute;
+
+    top:35px;
+
+    left:22px;
+
+}
+
+
+
+
+
+
+
+/* =========================
+BUTTONS
+========================= */
+
+
+.action-area{
+
+    position:absolute;
+
+
+    bottom:10px;
+
+
+    left:60px;
+
+    right:60px;
+
+
+    display:flex;
+
+    gap:15px;
+
+
+    z-index:20;
+
+}
+
+
+
+.action-area button{
+
+    flex:1;
+
+    height:45px;
+
+
+    background:#07172e;
+
+
+    border:2px solid #008cff;
+
+
+    color:white;
+
+
+    font-weight:bold;
+
+
+}
+
+
+
+.play-btn{
+
+    border-color:#ff6600!important;
 
 }
