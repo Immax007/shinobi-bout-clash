@@ -1,0 +1,334 @@
+*{
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+
+body{
+
+    margin:0;
+
+    background:#050914;
+
+    color:white;
+
+}
+
+
+.game{
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.4),
+    rgba(0,0,0,.7)
+    ),
+    url("assets/battlefield.jpg");
+
+    background-size:cover;
+
+    padding:15px;
+
+}
+
+
+
+header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+.logo{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+
+.logo span{
+
+    font-size:45px;
+
+    border:3px solid #1477ff;
+
+    padding:5px 15px;
+
+    color:#ff6600;
+
+}
+
+
+.logo h1{
+
+    margin:0;
+
+    letter-spacing:4px;
+
+}
+
+
+.logo p{
+
+    color:#ff6600;
+
+    letter-spacing:8px;
+
+}
+
+
+
+.restart{
+
+    font-size:35px;
+
+    background:none;
+
+    color:white;
+
+    border:2px solid #008cff;
+
+    border-radius:20px;
+
+}
+
+
+
+.player-panel{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    border:2px solid;
+
+    padding:15px;
+
+    margin-top:20px;
+
+    background:#071225cc;
+
+}
+
+
+.enemy{
+
+    border-color:red;
+
+}
+
+
+.player{
+
+    border-color:#009cff;
+
+}
+
+
+
+.player-panel img{
+
+    width:90px;
+
+    height:90px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+}
+
+
+
+.chakra{
+
+    flex:1;
+
+}
+
+
+.bar{
+
+    height:15px;
+
+    background:#123;
+
+    border-radius:20px;
+
+}
+
+
+.bar div{
+
+    height:100%;
+
+    width:60%;
+
+    background:orange;
+
+    border-radius:20px;
+
+}
+
+
+
+.blue div{
+
+    background:#00eaff;
+
+}
+
+
+
+.turn{
+
+    margin:20px auto;
+
+    text-align:center;
+
+    padding:12px;
+
+    width:350px;
+
+    background:#300;
+
+    border-radius:30px;
+
+}
+
+
+
+.battlefield{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+}
+
+
+
+.pile img{
+
+    width:150px;
+
+}
+
+
+
+.active-card,
+.fire-card,
+.card{
+
+    width:150px;
+
+    height:200px;
+
+    padding:15px;
+
+    border-radius:20px;
+
+    border:3px solid #00aaff;
+
+    background:#08172e;
+
+}
+
+
+
+.fire,
+.fire-card{
+
+    border-color:#ff3300;
+
+}
+
+
+.wind{
+
+    border-color:#00ffff;
+
+}
+
+
+.water{
+
+    border-color:#009cff;
+
+}
+
+
+.jutsu{
+
+    border-color:#a000ff;
+
+}
+
+
+.earth{
+
+    border-color:#ffaa00;
+
+}
+
+
+
+.hand{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+
+
+footer{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    margin-top:30px;
+
+}
+
+
+button{
+
+    padding:18px;
+
+    background:#071a38;
+
+    color:white;
+
+    border:2px solid #008cff;
+
+    border-radius:15px;
+
+}
+
+
+.play{
+
+    border-color:#ff6600;
+
+}
