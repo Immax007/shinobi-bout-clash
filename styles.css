@@ -1,144 +1,96 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+html, body {
 
+    width:100%;
+    height:100%;
 
-body {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background: #020712;
+    margin:0;
+
+    overflow:hidden;
+
 }
 
 
 .game-background {
 
-    position: relative;
-    width: 100%;
-    height: 100%;
+    position:relative;
 
-    overflow: hidden;
+    width:100vw;
+    height:100vh;
 
-    background-image: url("assets/battlefield.jpg");
-    background-size: cover;
-    background-position: center;
-
-}
-
-
-
-/* moon */
-
-.moon {
-
-    position:absolute;
-
-    width:260px;
-
-    right:20%;
-    top:40px;
-
-    opacity:.9;
-
-}
-
-
-/* far mountains */
-
-.mountains-back {
-
-    position:absolute;
-
-    width:100%;
-    height:auto;
-
-    bottom:150px;
-
-}
-
-
-
-/* village lights */
-
-.village {
-
-    position:absolute;
-
-    width:100%;
-
-    bottom:80px;
-
-}
-
-
-
-/* front mountains */
-
-.mountains-front {
-
-    position:absolute;
-
-    width:100%;
-
-    bottom:0;
-
-}
-
-
-
-/* moving fog */
-
-.fog-layer {
-
-    position:absolute;
-
-    inset:0;
-
-    background-image:url("assets/fog.png");
+    background-image:url("assets/battlefield.jpg");
 
     background-size:cover;
 
-    opacity:.35;
-
-    animation:fogMove 20s linear infinite;
+    background-position:center;
 
 }
 
 
 
-@keyframes fogMove {
-
-
-from {
-
-transform:translateX(0);
-
-}
-
-
-to {
-
-transform:translateX(-200px);
-
-}
-
-
-}
-
-
-
-/* mist */
-
-.mist {
+.game-background img {
 
     position:absolute;
 
-    bottom:0;
-
     width:100%;
 
-    opacity:.45;
+    left:0;
+
+}
+
+
+
+.moon {
+
+    width:250px !important;
+
+    right:15%;
+
+    left:auto !important;
+
+    top:40px;
+
+}
+
+
+
+.mountains-back {
+
+    bottom:180px;
+
+}
+
+
+
+.village {
+
+    bottom:100px;
+
+}
+
+
+
+.mountains-front {
+
+    bottom:0;
+
+}
+
+
+
+.fog {
+
+    top:0;
+
+    opacity:.35;
+
+}
+
+
+
+.mist {
+
+    bottom:0;
+
+    opacity:.5;
 
 }
