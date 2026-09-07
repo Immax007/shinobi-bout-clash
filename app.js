@@ -1,15 +1,18 @@
-// =====================================
-// SHINOBI CLASH v3
-// MOBILE INTERFACE CONTROLLER
-// =====================================
+// ==========================================
+// SHINOBI CLASH v5
+// LANDSCAPE BATTLE INTERFACE CONTROLLER
+// ==========================================
 
 
-console.log("⚔ Shinobi Clash Mobile UI Loaded");
+console.log("⚔ Shinobi Clash v5 Loaded");
 
 
 
 
+// ================================
 // CARD SELECTION
+// ================================
+
 
 const cards = document.querySelectorAll(".card");
 
@@ -20,10 +23,8 @@ let selectedCard = null;
 cards.forEach(card => {
 
 
-    card.addEventListener("click", ()=>{
+    card.addEventListener("click",()=>{
 
-
-        // remove old selection
 
         cards.forEach(c=>{
 
@@ -33,8 +34,6 @@ cards.forEach(card => {
 
 
 
-        // select card
-
         card.classList.add("selected");
 
 
@@ -43,8 +42,7 @@ cards.forEach(card => {
 
 
         console.log(
-            "Selected:",
-            card.querySelector("h3").innerText
+            "Selected card"
         );
 
 
@@ -58,7 +56,10 @@ cards.forEach(card => {
 
 
 
+
+// ================================
 // PLAY CARD
+// ================================
 
 
 const playButton =
@@ -66,15 +67,13 @@ document.querySelector(".play");
 
 
 
-playButton.addEventListener(
-"click",
-()=>{
+playButton.onclick = ()=>{
 
 
     if(!selectedCard){
 
         alert(
-        "Choose a card first"
+        "Select a card first"
         );
 
         return;
@@ -84,14 +83,13 @@ playButton.addEventListener(
 
 
     selectedCard.classList.add(
-    "attack"
+        "attack"
     );
 
 
 
     console.log(
-    "Attack with:",
-    selectedCard.querySelector("h3").innerText
+        "Card played"
     );
 
 
@@ -100,20 +98,20 @@ playButton.addEventListener(
 
 
         selectedCard.classList.remove(
-        "attack"
+            "attack"
         );
 
 
         selectedCard.classList.remove(
-        "selected"
+            "selected"
         );
 
 
-    },700);
+    },800);
 
 
 
-});
+};
 
 
 
@@ -121,27 +119,29 @@ playButton.addEventListener(
 
 
 
-// DRAW CARD SYSTEM
+// ================================
+// DRAW SYSTEM
+// ================================
 
 
 const drawButton =
 document.querySelector(
-".actions button:first-child"
+".buttons button:first-child"
 );
 
 
 
-let deck = 12;
+let deckAmount = 12;
 
 
 
 drawButton.onclick = ()=>{
 
 
-    if(deck <= 0){
+    if(deckAmount <= 0){
 
         alert(
-        "No cards remaining"
+        "No cards left"
         );
 
         return;
@@ -149,14 +149,13 @@ drawButton.onclick = ()=>{
     }
 
 
-
-    deck--;
+    deckAmount--;
 
 
 
     document.querySelector(
-    ".pile strong"
-    ).innerText = deck;
+    ".pile b"
+    ).innerText = deckAmount;
 
 
 
@@ -173,49 +172,26 @@ drawButton.onclick = ()=>{
 
 
 
-// RESET BUTTON
-
-
-const reset =
-document.querySelector(
-".restart"
-);
-
-
-
-reset.onclick = ()=>{
-
-
-    location.reload();
-
-
-};
-
-
-
-
-
-
-
-
+// ================================
 // JUTSU EFFECT
+// ================================
 
 
-const jutsu =
+const jutsuButton =
 document.querySelector(
-".actions button:nth-child(3)"
+".buttons button:nth-child(3)"
 );
 
 
 
-jutsu.onclick = ()=>{
+jutsuButton.onclick = ()=>{
 
 
     document.querySelector(
-    ".game-screen"
+    ".game"
     )
     .classList.add(
-    "jutsu-mode"
+    "jutsu"
     );
 
 
@@ -224,14 +200,37 @@ jutsu.onclick = ()=>{
 
 
         document.querySelector(
-        ".game-screen"
+        ".game"
         )
         .classList.remove(
-        "jutsu-mode"
+        "jutsu"
         );
 
 
     },1200);
+
+
+
+};
+
+
+
+
+
+
+
+// ================================
+// RESET GAME
+// ================================
+
+
+document.querySelector(
+".header button"
+)
+.onclick = ()=>{
+
+
+location.reload();
 
 
 };
@@ -244,7 +243,9 @@ jutsu.onclick = ()=>{
 
 
 
-// ADD ANIMATIONS
+// ================================
+// VISUAL EFFECTS
+// ================================
 
 
 const style =
@@ -257,18 +258,17 @@ document.createElement(
 style.innerHTML = `
 
 
-
 .selected{
 
 
 transform:
 translateY(-35px)
-scale(1.15);
+scale(1.12);
 
 
 filter:
 drop-shadow(
-0 0 20px cyan
+0 0 25px cyan
 );
 
 
@@ -279,11 +279,12 @@ z-index:50;
 
 
 
+
 .attack{
 
 
 animation:
-attackMove .6s;
+attackMove .7s;
 
 
 }
@@ -296,19 +297,17 @@ attackMove .6s;
 0%{
 
 transform:
-translateY(-30px)
-translateX(0);
+translate(0,-30px);
 
 }
-
 
 
 50%{
 
 transform:
-translateY(-30px)
-translateX(150px)
+translate(250px,-40px)
 scale(1.2);
+
 
 }
 
@@ -317,37 +316,35 @@ scale(1.2);
 100%{
 
 transform:
-translateY(0)
-translateX(0);
-
-}
-
+translate(0,0);
 
 
 }
 
 
+}
 
 
-.jutsu-mode{
+
+
+.jutsu{
 
 
 animation:
-chakraFlash .25s infinite alternate;
+chakraBurst .25s infinite alternate;
 
 
 }
 
 
 
-@keyframes chakraFlash{
+@keyframes chakraBurst{
 
 
 from{
 
 filter:
 brightness(1);
-
 
 }
 
@@ -356,11 +353,9 @@ brightness(1);
 to{
 
 filter:
-brightness(1.8);
-
+brightness(2);
 
 }
-
 
 
 }
@@ -377,12 +372,13 @@ document.head.appendChild(style);
 
 
 
-
-
-// =====================================
+// ==========================================
 // NEXT PHASE:
+//
 // REAL CARD DATABASE
-// TURN ENGINE
-// DAMAGE SYSTEM
-// AI OPPONENT
-// =====================================
+// CHAKRA COSTS
+// ATTACK DAMAGE
+// TURN SYSTEM
+// ENEMY AI
+//
+// ==========================================
