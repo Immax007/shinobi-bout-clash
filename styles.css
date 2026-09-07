@@ -1,86 +1,182 @@
 *{
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial, Helvetica, sans-serif;
 }
 
 
 body{
 
-    margin:0;
+background:#02040a;
 
-    background:#050914;
+overflow:hidden;
 
-    color:white;
+color:white;
 
 }
 
+
+/* MAIN GAME */
 
 .game{
 
-    min-height:100vh;
+height:100vh;
 
-    background:
-    linear-gradient(
-    rgba(0,0,0,.4),
-    rgba(0,0,0,.7)
-    ),
-    url("assets/battlefield.jpg");
+width:100vw;
 
-    background-size:cover;
+position:relative;
 
-    padding:15px;
+overflow:hidden;
+
+background:#050914;
 
 }
 
+
+
+/* BACKGROUND LAYERS */
+
+
+.sky{
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+180deg,
+#020617,
+#081426
+);
+
+}
+
+
+
+.moon{
+
+position:absolute;
+
+width:180px;
+
+right:80px;
+
+top:50px;
+
+opacity:.9;
+
+}
+
+
+
+.mountain{
+
+position:absolute;
+
+bottom:0;
+
+width:100%;
+
+}
+
+
+
+.back{
+
+opacity:.8;
+
+}
+
+
+.front{
+
+z-index:3;
+
+}
+
+
+
+.village{
+
+position:absolute;
+
+bottom:90px;
+
+width:100%;
+
+z-index:2;
+
+}
+
+
+
+.fog{
+
+position:absolute;
+
+bottom:0;
+
+width:100%;
+
+height:70%;
+
+z-index:4;
+
+opacity:.35;
+
+animation:fogMove 15s infinite alternate;
+
+}
+
+
+
+@keyframes fogMove{
+
+from{
+
+transform:translateX(-40px);
+
+}
+
+to{
+
+transform:translateX(40px);
+
+}
+
+}
+
+
+
+
+/* HEADER */
 
 
 header{
 
-    display:flex;
+position:relative;
 
-    justify-content:space-between;
+z-index:10;
 
-    align-items:center;
+height:80px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:15px 35px;
 
 }
+
 
 
 .logo{
 
-    display:flex;
-
-    gap:15px;
-
-}
-
-
-.logo span{
-
-    font-size:45px;
-
-    border:3px solid #1477ff;
-
-    padding:5px 15px;
-
-    color:#ff6600;
-
-}
-
-
-.logo h1{
-
-    margin:0;
-
-    letter-spacing:4px;
-
-}
-
-
-.logo p{
-
-    color:#ff6600;
-
-    letter-spacing:8px;
+height:65px;
 
 }
 
@@ -88,247 +184,530 @@ header{
 
 .restart{
 
-    font-size:35px;
+height:55px;
 
-    background:none;
+width:55px;
 
-    color:white;
+border-radius:50%;
 
-    border:2px solid #008cff;
+background:#07152c;
 
-    border-radius:20px;
+border:2px solid #009cff;
+
+color:white;
+
+font-size:30px;
+
+box-shadow:
+0 0 20px #009cff;
+
+}
+
+
+
+
+/* FIGHTERS */
+
+
+.fighter{
+
+position:relative;
+
+z-index:10;
+
+margin:5px 30px;
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
+padding:12px;
+
+background:
+rgba(4,13,30,.85);
+
+border-radius:15px;
 
 }
 
-
-
-.player-panel{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
-
-    border:2px solid;
-
-    padding:15px;
-
-    margin-top:20px;
-
-    background:#071225cc;
-
-}
 
 
 .enemy{
 
-    border-color:red;
+border:2px solid #ff3030;
+
+box-shadow:
+0 0 25px #ff000055;
 
 }
+
 
 
 .player{
 
-    border-color:#009cff;
+border:2px solid #008cff;
+
+box-shadow:
+0 0 25px #008cff55;
 
 }
 
 
 
-.player-panel img{
+.avatar{
 
-    width:90px;
+width:95px;
 
-    height:90px;
+height:95px;
 
-    object-fit:cover;
+object-fit:cover;
 
-    border-radius:20px;
+border-radius:15px;
 
-}
-
-
-
-.chakra{
-
-    flex:1;
-
-}
-
-
-.bar{
-
-    height:15px;
-
-    background:#123;
-
-    border-radius:20px;
-
-}
-
-
-.bar div{
-
-    height:100%;
-
-    width:60%;
-
-    background:orange;
-
-    border-radius:20px;
+border:3px solid white;
 
 }
 
 
 
-.blue div{
 
-    background:#00eaff;
+.fighter-info{
+
+flex:1;
 
 }
 
+
+
+.fighter-info h2{
+
+letter-spacing:3px;
+
+}
+
+
+
+.fighter-info p{
+
+color:#aaa;
+
+margin-bottom:10px;
+
+}
+
+
+
+
+.chakra-bar{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+
+
+.chakra-bar div{
+
+height:15px;
+
+width:260px;
+
+background:#111d35;
+
+border-radius:20px;
+
+overflow:hidden;
+
+}
+
+
+
+.chakra-bar b{
+
+display:block;
+
+height:100%;
+
+width:65%;
+
+background:
+linear-gradient(
+90deg,
+#ff6600,
+#ffcc00
+);
+
+}
+
+
+
+.blue b{
+
+width:75%;
+
+background:
+linear-gradient(
+90deg,
+#00aaff,
+#00ffff
+);
+
+}
+
+
+
+.hand-count{
+
+text-align:center;
+
+padding:15px;
+
+border:2px solid #fff;
+
+border-radius:15px;
+
+}
+
+
+
+
+
+/* TURN */
 
 
 .turn{
 
-    margin:20px auto;
+position:relative;
 
-    text-align:center;
+z-index:10;
 
-    padding:12px;
+margin:10px auto;
 
-    width:350px;
+width:350px;
 
-    background:#300;
+padding:12px;
 
-    border-radius:30px;
+text-align:center;
 
-}
-
-
-
-.battlefield{
-
-    display:flex;
-
-    justify-content:space-around;
-
-    align-items:center;
+border-radius:30px;
 
 }
 
 
 
-.pile img{
+.enemy-turn{
 
-    width:150px;
+background:#520000;
+
+border:2px solid red;
 
 }
 
 
 
-.active-card,
-.fire-card,
+
+
+/* ARENA */
+
+
+.arena{
+
+position:relative;
+
+z-index:10;
+
+height:280px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:70px;
+
+}
+
+
+
+.deck img{
+
+width:120px;
+
+}
+
+
+
+.deck,
+
+.discard{
+
+text-align:center;
+
+}
+
+
+
+
+.active-card{
+
+position:relative;
+
+width:180px;
+
+height:250px;
+
+}
+
+
+
+.active-card>img{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+}
+
+
+
+.card-content{
+
+position:absolute;
+
+inset:0;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+
+
+.card-content img{
+
+width:90px;
+
+}
+
+
+
+.card-content h2{
+
+font-size:45px;
+
+}
+
+
+
+
+
+.mini-card{
+
+position:relative;
+
+width:120px;
+
+}
+
+
+
+.mini-card img{
+
+width:100%;
+
+}
+
+
+
+
+/* HAND */
+
+
+.cards{
+
+position:relative;
+
+z-index:20;
+
+display:flex;
+
+justify-content:center;
+
+gap:10px;
+
+}
+
+
+
 .card{
 
-    width:150px;
+width:125px;
 
-    height:200px;
+height:180px;
 
-    padding:15px;
+position:relative;
 
-    border-radius:20px;
+cursor:pointer;
 
-    border:3px solid #00aaff;
-
-    background:#08172e;
+transition:.3s;
 
 }
 
 
 
-.fire,
-.fire-card{
+.card:hover{
 
-    border-color:#ff3300;
-
-}
-
-
-.wind{
-
-    border-color:#00ffff;
-
-}
-
-
-.water{
-
-    border-color:#009cff;
-
-}
-
-
-.jutsu{
-
-    border-color:#a000ff;
-
-}
-
-
-.earth{
-
-    border-color:#ffaa00;
+transform:
+translateY(-20px)
+scale(1.05);
 
 }
 
 
 
-.hand{
+.card>img:first-child{
 
-    display:flex;
+position:absolute;
 
-    justify-content:center;
+width:100%;
 
-    gap:15px;
-
-    margin-top:30px;
+height:100%;
 
 }
 
+
+
+.card img:nth-child(2){
+
+position:absolute;
+
+width:65px;
+
+left:30px;
+
+top:35px;
+
+}
+
+
+
+.card h3{
+
+position:absolute;
+
+bottom:15px;
+
+width:100%;
+
+text-align:center;
+
+}
+
+
+
+
+
+/* BUTTONS */
 
 
 footer{
 
-    display:flex;
+position:relative;
 
-    justify-content:center;
+z-index:20;
 
-    gap:20px;
+display:flex;
 
-    margin-top:30px;
+justify-content:center;
+
+gap:15px;
+
+margin-top:20px;
 
 }
+
 
 
 button{
 
-    padding:18px;
+padding:15px 25px;
 
-    background:#071a38;
+background:#07172f;
 
-    color:white;
+color:white;
 
-    border:2px solid #008cff;
+border:2px solid #009cff;
 
-    border-radius:15px;
+border-radius:12px;
+
+font-weight:bold;
+
+cursor:pointer;
 
 }
 
 
+
+button:hover{
+
+box-shadow:
+
+0 0 20px #009cff;
+
+}
+
+
+
 .play{
 
-    border-color:#ff6600;
+border-color:#ff6600;
+
+}
+
+
+
+
+/* MOBILE */
+
+
+@media(max-width:900px){
+
+
+.chakra-bar div{
+
+width:120px;
+
+}
+
+
+.cards{
+
+transform:scale(.8);
+
+}
+
+
+
+.arena{
+
+gap:20px;
+
+}
+
+
 
 }
