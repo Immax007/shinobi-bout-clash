@@ -5,7 +5,7 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Shinobi Clash</title>
 
@@ -17,18 +17,14 @@
 <body>
 
 
-<div class="game-screen">
+<div class="game">
 
 
 <!-- BACKGROUND -->
 
-<div class="battle-bg"></div>
+<div class="background"></div>
 
 <img src="assets/moon.png" class="moon">
-
-<img src="assets/mountains-back.png" class="mountain-back">
-
-<img src="assets/mountains-front.png" class="mountain-front">
 
 <img src="assets/village-lights.png" class="village">
 
@@ -38,18 +34,15 @@
 
 
 
-<!-- TOP HEADER -->
+<!-- HEADER -->
 
-<div class="top-header">
+<div class="header">
 
+<img src="assets/logo.png">
 
-<img src="assets/logo.png" class="logo">
-
-
-<button class="restart">
+<button>
 ↻
 </button>
-
 
 </div>
 
@@ -58,23 +51,21 @@
 
 
 
-<!-- ENEMY AREA -->
+<!-- ENEMY BAR -->
 
-<div class="enemy-hud">
+<section class="enemy-panel">
 
 
-<div class="portrait red">
+<div class="portrait">
 
 <img src="assets/shadowwolf.png">
 
 </div>
 
 
+<div class="info">
 
-<div class="name-box">
-
-
-<h2>SHADOWWOLF</h2>
+<h1>SHADOWWOLF</h1>
 
 <p>JŌNIN • LV.15</p>
 
@@ -83,9 +74,9 @@
 
 <span>CHAKRA</span>
 
-<div class="chakra-track">
+<div class="bar">
 
-<div class="enemy-energy"></div>
+<div></div>
 
 </div>
 
@@ -100,25 +91,19 @@
 
 
 
-
-<div class="enemy-hand">
-
+<div class="enemy-cards">
 
 <img src="assets/card-back.png">
-
 <img src="assets/card-back.png">
-
 <img src="assets/card-back.png">
-
 <img src="assets/card-back.png">
-
 <img src="assets/card-back.png">
 
 
 </div>
 
 
-</div>
+</section>
 
 
 
@@ -140,20 +125,23 @@
 
 
 
-<!-- CENTER TABLE -->
+<!-- CENTER FIELD -->
 
 
-<div class="battle-table">
-
+<div class="field">
 
 
 <div class="pile">
 
 <img src="assets/card-back.png">
 
-<label>DRAW PILE</label>
+<label>
+DRAW PILE
+</label>
 
-<strong>12</strong>
+<b>
+12
+</b>
 
 </div>
 
@@ -161,7 +149,9 @@
 
 
 
-<div class="active-card">
+
+<div class="active">
+
 
 <img src="assets/card-frame-blue.png">
 
@@ -169,31 +159,35 @@
 <img src="assets/lightning.png" class="element">
 
 
-<div class="number">
-
+<strong>
 7
+</strong>
+
+
+<span>
+CHAKRA
+</span>
+
 
 </div>
 
 
-<span>CHAKRA</span>
-
-
-</div>
 
 
 
 
-
-
-<div class="pile discard">
+<div class="pile">
 
 
 <img src="assets/fire.png">
 
-<label>DISCARD PILE</label>
+<label>
+DISCARD PILE
+</label>
 
-<strong>3</strong>
+<b>
+3
+</b>
 
 
 </div>
@@ -208,73 +202,52 @@
 
 
 
+<!-- PLAYER BAR -->
 
-<!-- YOUR TURN -->
-
-
-<div class="turn player-turn">
-
-✦ YOUR TURN
-
-</div>
+<section class="player-panel">
 
 
-
-
-
-
-
-
-<!-- PLAYER HUD -->
-
-
-<div class="player-hud">
-
-
-
-<div class="portrait blue">
-
+<div class="portrait">
 
 <img src="assets/emmanuel.png">
 
-
 </div>
 
 
+<div class="info">
 
 
-<div class="name-box">
-
-
-<h2>EMMANUEL</h2>
+<h1>EMMANUEL</h1>
 
 <p>CHŪNIN • LV.12</p>
+
 
 
 <div class="chakra">
 
 <span>CHAKRA</span>
 
+<div class="bar blue">
 
-<div class="chakra-track">
+<div></div>
 
-<div class="player-energy"></div>
+</div>
+
+
+<b>
+62
+</b>
 
 
 </div>
 
 
-<b>62</b>
-
-
 </div>
 
 
-</div>
 
 
-</div>
-
+</section>
 
 
 
@@ -285,7 +258,7 @@
 
 <!-- HAND -->
 
-<div class="player-hand">
+<div class="hand">
 
 
 <div class="card">
@@ -293,8 +266,6 @@
 <img src="assets/card-frame-blue.png">
 
 <img src="assets/wind.png">
-
-<h3>WIND</h3>
 
 </div>
 
@@ -306,10 +277,7 @@
 
 <img src="assets/fire.png">
 
-<h3>FIRE</h3>
-
 </div>
-
 
 
 
@@ -319,10 +287,7 @@
 
 <img src="assets/lightning.png">
 
-<h3>CHIDORI</h3>
-
 </div>
-
 
 
 
@@ -332,10 +297,7 @@
 
 <img src="assets/water.png">
 
-<h3>WATER</h3>
-
 </div>
-
 
 
 
@@ -345,10 +307,7 @@
 
 <img src="assets/jutsu.png">
 
-<h3>RASENGAN</h3>
-
 </div>
-
 
 
 
@@ -358,8 +317,6 @@
 
 <img src="assets/earth.png">
 
-<h3>EARTH</h3>
-
 </div>
 
 
@@ -372,30 +329,25 @@
 
 
 
+<!-- BUTTONS -->
 
-<!-- ACTIONS -->
 
-
-<div class="actions">
-
+<div class="buttons">
 
 <button>
 DRAW CARD
 </button>
 
-
 <button class="play">
-PLAY CARD
+▶ PLAY CARD
 </button>
 
-
 <button>
-⚡ JUTSU
+⚡ USE JUTSU
 </button>
 
-
 <button>
-✦ KAGE
+✦ KAGE ABILITY
 </button>
 
 
