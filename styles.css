@@ -32,6 +32,10 @@ html, body {
 
     background-position:center;
 
+    aspect-ratio:16/9;
+
+    margin:auto;
+
 }
 
 
