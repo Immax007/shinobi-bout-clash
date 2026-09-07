@@ -20,9 +20,15 @@ html, body {
 
     width:100vw;
 
-    height:100vh;
+    height:56.25vw; /* 16:9 ratio */
+
+    max-height:100vh;
 
     overflow:hidden;
+
+    margin:auto;
+
+    background:#020611;
 
 }
 
@@ -41,25 +47,24 @@ html, body {
 
 
 
+
 .game-background {
 
-    width:100vw;
-    height:100vh;
+    position:absolute;
+
+    inset:0;
 
     background:
     linear-gradient(
-        rgba(0,0,0,.55),
-        rgba(0,0,0,.65)
+        rgba(0,0,0,.35),
+        rgba(0,0,0,.55)
     ),
     url("./assets/battlefield.jpg");
+
 
     background-size:cover;
 
     background-position:center;
-
-    aspect-ratio:16/9;
-
-    margin:auto;
 
 }
 
