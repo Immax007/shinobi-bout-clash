@@ -114,3 +114,23 @@ pointer-events:none;
 z-index:10;
 
 }
+
+
+.game-background::after {
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        transparent 55%,
+        rgba(0,0,0,.75)
+    );
+
+    pointer-events:none;
+
+}
+
