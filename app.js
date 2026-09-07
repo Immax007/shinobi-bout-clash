@@ -1,13 +1,15 @@
 // =====================================
-// SHINOBI CLASH - INTERFACE CONTROLLER
+// SHINOBI CLASH v3
+// MOBILE INTERFACE CONTROLLER
 // =====================================
 
 
-console.log("⚔ Shinobi Clash initialized");
+console.log("⚔ Shinobi Clash Mobile UI Loaded");
 
 
 
-// CARD SELECTION SYSTEM
+
+// CARD SELECTION
 
 const cards = document.querySelectorAll(".card");
 
@@ -18,10 +20,10 @@ let selectedCard = null;
 cards.forEach(card => {
 
 
-    card.addEventListener("click",()=>{
+    card.addEventListener("click", ()=>{
 
 
-        // remove previous selection
+        // remove old selection
 
         cards.forEach(c=>{
 
@@ -31,7 +33,7 @@ cards.forEach(card => {
 
 
 
-        // select current card
+        // select card
 
         card.classList.add("selected");
 
@@ -39,9 +41,10 @@ cards.forEach(card => {
         selectedCard = card;
 
 
+
         console.log(
-            "Selected card:",
-            card.innerText
+            "Selected:",
+            card.querySelector("h3").innerText
         );
 
 
@@ -54,7 +57,8 @@ cards.forEach(card => {
 
 
 
-// PLAY BUTTON
+
+// PLAY CARD
 
 
 const playButton =
@@ -70,7 +74,7 @@ playButton.addEventListener(
     if(!selectedCard){
 
         alert(
-        "Select a card first!"
+        "Choose a card first"
         );
 
         return;
@@ -79,14 +83,15 @@ playButton.addEventListener(
 
 
 
-    selectedCard.style.animation =
-    "attack 0.5s";
+    selectedCard.classList.add(
+    "attack"
+    );
 
 
 
     console.log(
-    "Playing:",
-    selectedCard.innerText
+    "Attack with:",
+    selectedCard.querySelector("h3").innerText
     );
 
 
@@ -95,11 +100,16 @@ playButton.addEventListener(
 
 
         selectedCard.classList.remove(
+        "attack"
+        );
+
+
+        selectedCard.classList.remove(
         "selected"
         );
 
 
-    },600);
+    },700);
 
 
 
@@ -109,29 +119,29 @@ playButton.addEventListener(
 
 
 
-// DRAW BUTTON
+
+
+// DRAW CARD SYSTEM
 
 
 const drawButton =
 document.querySelector(
-"footer button:first-child"
+".actions button:first-child"
 );
 
 
 
-let deckCount = 12;
+let deck = 12;
 
 
 
-drawButton.addEventListener(
-"click",
-()=>{
+drawButton.onclick = ()=>{
 
 
-    if(deckCount <=0){
+    if(deck <= 0){
 
         alert(
-        "Deck empty!"
+        "No cards remaining"
         );
 
         return;
@@ -140,48 +150,72 @@ drawButton.addEventListener(
 
 
 
-    deckCount--;
+    deck--;
+
 
 
     document.querySelector(
-    ".deck b"
-    ).innerText = deckCount;
+    ".pile strong"
+    ).innerText = deck;
 
 
 
     console.log(
-    "Card drawn"
-    );
-
-});
-
-
-
-
-
-
-
-// JUTSU BUTTON
-
-
-const jutsuButton =
-document.querySelectorAll(
-"footer button"
-)[2];
-
-
-
-jutsuButton.onclick=()=>{
-
-
-    document.body.classList.add(
-    "jutsu-active"
+    "Drawing card..."
     );
 
 
+};
 
-    console.log(
-    "Jutsu activated!"
+
+
+
+
+
+
+// RESET BUTTON
+
+
+const reset =
+document.querySelector(
+".restart"
+);
+
+
+
+reset.onclick = ()=>{
+
+
+    location.reload();
+
+
+};
+
+
+
+
+
+
+
+
+// JUTSU EFFECT
+
+
+const jutsu =
+document.querySelector(
+".actions button:nth-child(3)"
+);
+
+
+
+jutsu.onclick = ()=>{
+
+
+    document.querySelector(
+    ".game-screen"
+    )
+    .classList.add(
+    "jutsu-mode"
     );
 
 
@@ -189,12 +223,15 @@ jutsuButton.onclick=()=>{
     setTimeout(()=>{
 
 
-        document.body.classList.remove(
-        "jutsu-active"
+        document.querySelector(
+        ".game-screen"
+        )
+        .classList.remove(
+        "jutsu-mode"
         );
 
 
-    },1500);
+    },1200);
 
 
 };
@@ -205,33 +242,9 @@ jutsuButton.onclick=()=>{
 
 
 
-// KAGE ABILITY
 
 
-const kageButton =
-document.querySelectorAll(
-"footer button"
-)[3];
-
-
-
-kageButton.onclick=()=>{
-
-
-    alert(
-    "Kage Ability ready!"
-    );
-
-
-};
-
-
-
-
-
-
-
-// ADD CSS ANIMATIONS DYNAMICALLY
+// ADD ANIMATIONS
 
 
 const style =
@@ -244,35 +257,57 @@ document.createElement(
 style.innerHTML = `
 
 
+
 .selected{
+
 
 transform:
 translateY(-35px)
-scale(1.1);
+scale(1.15);
+
 
 filter:
 drop-shadow(
-0 0 25px #00ffff
+0 0 20px cyan
 );
+
+
+z-index:50;
+
 
 }
 
 
 
-@keyframes attack{
+.attack{
+
+
+animation:
+attackMove .6s;
+
+
+}
+
+
+
+@keyframes attackMove{
+
 
 0%{
 
 transform:
+translateY(-30px)
 translateX(0);
 
 }
 
 
+
 50%{
 
 transform:
-translateX(120px)
+translateY(-30px)
+translateX(150px)
 scale(1.2);
 
 }
@@ -282,25 +317,30 @@ scale(1.2);
 100%{
 
 transform:
+translateY(0)
 translateX(0);
 
 }
 
 
+
 }
 
 
 
-.jutsu-active{
+
+.jutsu-mode{
+
 
 animation:
-jutsuFlash .3s infinite alternate;
+chakraFlash .25s infinite alternate;
+
 
 }
 
 
 
-@keyframes jutsuFlash{
+@keyframes chakraFlash{
 
 
 from{
@@ -308,18 +348,23 @@ from{
 filter:
 brightness(1);
 
+
 }
+
 
 
 to{
 
 filter:
-brightness(2);
-
-}
+brightness(1.8);
 
 
 }
+
+
+
+}
+
 
 
 `;
@@ -332,8 +377,12 @@ document.head.appendChild(style);
 
 
 
+
+
 // =====================================
-// END OF INTERFACE VERSION
-// NEXT:
-// REAL CARD DATA + TURN SYSTEM
+// NEXT PHASE:
+// REAL CARD DATABASE
+// TURN ENGINE
+// DAMAGE SYSTEM
+// AI OPPONENT
 // =====================================
